@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script type="module" src="model-viewer.min.js"></script>
+
+        <model-viewer
+                console.log(modelViewer.getCameraOrbit());
+                src='iron_man_mark_85.glb'
+                shadow-intensity="1"
+                auto-rotate="false"
+                interaction-prompt="none"
+                camera-controls="true"
+                rotation-per-second="25deg"
+                camera-orbit="45deg 60deg 50m"
+                touch-action="pan-y"
+                style="width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 0; display: block;">
+        </model-viewer>
+
+        <audio id="audio" autoplay loop>
+            <source src="Avengers Theme Music.mp3" type="audio/mp3">
+          </audio>
+          <script>
+            var audio = document.getElementById("audio");
+            var modelViewer = document.querySelector('model-viewer');
+            document.addEventListener("click", function() {
+                if (audio.paused) {
+                    audio.play()
+                    modelViewer.setAttribute('rotation-per-second', '25deg');
+                } else {
+                    audio.pause();
+                    modelViewer.setAttribute('rotation-per-second', '100deg');
+                    }
+                });
+            
+          </script>
+          
+          
+
+    </body>
+</html>
